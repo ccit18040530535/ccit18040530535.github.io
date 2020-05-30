@@ -288,7 +288,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">860字</span>
+      <span class="post-count">863字</span>
     </span>
   </span>
 
@@ -315,14 +315,12 @@
 <p>\1. 设置编辑路径（此步骤可省略，主要是为了更加快捷的打开博文进行书写）</p>
 <p>（在Windows里开发，大家习惯通过鼠标右键的方式来新建文件，然后使用编辑器打开。为了更加<strong><em>\</em>自动化**</strong>，我么希望通过一个指令来完成上述两个动作：新建文件+打开编辑器。）</p>
 <p>在站点根目录下（blog\）下新建一个文件夹（scripts），然后在新建一个文本（auto_open），在文件中填入以下内容，后把文本的后缀名改成“.js”。</p>
-<p>var spawn = require(‘child_process’).exec; </p>
-<p>// Hexo 2.x 用户复制这段 //hexo.on(‘new’, function(path){</p>
-<p>   //spawn(‘start “markdown编辑器绝对路径.exe” ‘ + path); //}); </p>
-<p>// Hexo 3 用户复制这段 </p>
-<p>hexo.on(‘new’, function(data){ </p>
-<p>  spawn(‘start “D:\Program Files\Typorae\Typora.exe” ‘ + data.path); });</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">var spawn = require(<span class="string">'child_process'</span>).<span class="built_in">exec</span>; </span><br><span class="line"></span><br><span class="line">// Hexo 2.x 用户复制这段 //hexo.on(<span class="string">'new'</span>, <span class="keyword">function</span>(path)&#123;</span><br><span class="line"></span><br><span class="line">   //spawn(<span class="string">'start "markdown编辑器绝对路径.exe" '</span> + path); //&#125;); </span><br><span class="line"></span><br><span class="line">// Hexo 3 用户复制这段 </span><br><span class="line"></span><br><span class="line">hexo.on(<span class="string">'new'</span>, <span class="keyword">function</span>(data)&#123; </span><br><span class="line"></span><br><span class="line">  spawn(<span class="string">'start "D:\Program Files\Typorae\Typora.exe" '</span> + data.path); &#125;);</span><br></pre></td></tr></table></figure>
+
 <p>注意：spawn括号里start后面的编辑路径得修改为你电脑上Typora安装的位置。</p>
-<p>\2. 新建一篇博文</p>
+<ol start="2">
+<li>新建一篇博文</li>
+</ol>
 <p>在blog目录里打开gitbash执行以下语句</p>
 <p>hexo new “filename”</p>
 <p>其中filename可以用你喜欢的博文名字替代，命令执行完后，就会在_posts下生成一篇名叫filename的新文章。同时你会发现编辑器Typora也打开了，新文章正在等待你的输入！</p>
@@ -784,6 +782,10 @@
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Github</a>
               </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">辅修</a>
+              </li>
             
             <div class="clearfix"></div>
           </ul>
@@ -963,6 +965,35 @@
   </div>
 
   
+<script type="text/javascript" src="../../../../plugins/TweenMax/TweenMax.min.js"></script>
+<script type="text/javascript" src="../../../../plugins/TweenMax/HoverImg.js"></script>
+
+<script>
+
+
+  var hoverEffect = {
+    "subNav": ".left-col .social a"
+  }
+
+
+  for (var x in hoverEffect) {
+    // 初始化data-img属性值
+    let $em = document.querySelectorAll(hoverEffect[x]);
+    $em.forEach(($a) => {
+      //console.log($a.href);
+      if (isImageType($a.href)) {
+        $a.setAttribute("data-img", $a.href)
+      }
+    })
+    // 实现悬停元素预览图片效果
+    let $a = document.querySelectorAll(hoverEffect[x] + "[data-img]");
+    $a.forEach(($em) => {
+      new HoverImgFx1($em)
+    })
+  }
+
+</script>
+
   
 <script type="text/javascript" src="../../../../plugins/activate-power-mode/activate-power-mode.js"></script>
 <script>
@@ -1007,7 +1038,7 @@
       jsonPath: modelJsonPath
     },
     display: {
-       position: "right", 
+       position: "left", 
        width: 145, 
        height: 315, 
        hOffset: 50, 
