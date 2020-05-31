@@ -16,22 +16,21 @@
 <meta property="og:url" content="https://ccit18040530535.github.io/2020/03/15/Hexo%E7%9A%84%E9%83%A8%E7%BD%B2/index.html">
 <meta property="og:site_name" content="抑郁FOX">
 <meta property="og:description" content="hexo升天">
-<meta property="og:image" content="file:///C:%5CUsers%5C%E6%9C%BA%E7%94%B5%E8%8F%B2~1%5CAppData%5CLocal%5CTemp%5Cksohtml33596%5Cwps21.jpg">
-<meta property="og:image" content="https://ccit18040530535.github.io/2020/03/15/picture/wps22.jpg">
-<meta property="og:image" content="https://ccit18040530535.github.io/2020/03/15/picture/wps23.jpg">
-<meta property="og:image" content="https://ccit18040530535.github.io/2020/03/15/picture/wps24.jpg">
-<meta property="og:image" content="https://ccit18040530535.github.io/2020/03/15/picture/wps25.jpg">
-<meta property="og:image" content="https://ccit18040530535.github.io/2020/03/15/picture/wps26.jpg">
-<meta property="og:image" content="https://ccit18040530535.github.io/2020/03/15/picture/wps27.jpg">
-<meta property="og:image" content="https://ccit18040530535.github.io/2020/03/15/picture/wps28.jpg">
-<meta property="og:image" content="https://ccit18040530535.github.io/2020/03/15/picture/1590856654038.png">
-<meta property="og:image" content="https://ccit18040530535.github.io/2020/03/15/picture/wps29.jpg">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/ccit18040530535/Picture@master/img/%E9%83%A8%E7%BD%B21.jpg">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/ccit18040530535/Picture@master/img/%E9%83%A8%E7%BD%B22.jpg">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/ccit18040530535/Picture@master/img/%E9%83%A8%E7%BD%B23.jpg">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/ccit18040530535/Picture@master/img/%E9%83%A8%E7%BD%B24.jpg">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/ccit18040530535/Picture@master/img/%E9%83%A8%E7%BD%B26.jpg">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/ccit18040530535/Picture@master/img/%E9%83%A8%E7%BD%B27.jpg">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/ccit18040530535/Picture@master/img/%E9%83%A8%E7%BD%B28.jpg">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/ccit18040530535/Picture@master/img/%E9%83%A8%E7%BD%B29.jpg">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/ccit18040530535/Picture@master/img/%E9%83%A8%E7%BD%B210.jpg">
 <meta property="article:published_time" content="2020-03-15T02:27:39.000Z">
 <meta property="article:modified_time" content="2020-03-15T02:27:39.000Z">
 <meta property="article:author" content="Iffy Fox">
 <meta property="article:tag" content="hexo的部署">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="file:///C:%5CUsers%5C%E6%9C%BA%E7%94%B5%E8%8F%B2~1%5CAppData%5CLocal%5CTemp%5Cksohtml33596%5Cwps21.jpg">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/ccit18040530535/Picture@master/img/%E9%83%A8%E7%BD%B21.jpg">
   
     <link rel="alternative" href="../../../../atom.xml" title="抑郁FOX" type="application/atom+xml">
   
@@ -290,7 +289,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">797字</span>
+      <span class="post-count">805字</span>
     </span>
   </span>
 
@@ -313,49 +312,56 @@
     <h1 id="Hexo的部署"><a href="#Hexo的部署" class="headerlink" title="Hexo的部署"></a>Hexo的部署</h1><a id="more"></a>
 
 <p>一. github的准备</p>
-<p><strong>1.</strong> <strong><em>\</em>注册Github**</strong>：右上角的sign in是登录，sign up是注册。</p>
-<p><strong>2.</strong> <strong><em>\</em>新建仓库(Repository)**</strong>:点击create repository按钮。</p>
+<p><strong>1.</strong> <strong><em>注册Github</em></strong>：右上角的sign in是登录，sign up是注册。</p>
+<p><strong>2.</strong> <strong><em>新建仓库(Repository)</em></strong>:点击create repository按钮。</p>
 <p>注意仓库名称必须写为username.github.io 其中username是你注册Github使用的用户名。</p>
-<p><strong>1.</strong> <strong><em>\</em>查看仓库配置**</strong>：点击仓库右上角的Settings选项。</p>
-<p>如果发现Github Pages这一部分有Your site is published at <a href="https://username.github.io" target="_blank" rel="noopener">https://username.github.io</a> 字样，则表明仓库具备了网页展示功能。提醒下：这个新建的仓库就是用来下面保存Hexo博客的各种资源文件的。<br>\4. <strong><em>\</em>获取本机当前用户的SSH公钥**</strong>：首先查看在本机的当前用户(操作系统的登录账户)目录下是否已经存在ssh公钥。~表示当前用户的家目录。</p>
+<p>3.<strong>查看仓库配置</strong>：点击仓库右上角的Settings选项。</p>
+<p>如果发现Github Pages这一部分有Your site is published at <a href="https://username.github.io" target="_blank" rel="noopener">https://username.github.io</a> 字样，则表明仓库具备了网页展示功能。提醒下：这个新建的仓库就是用来下面保存Hexo博客的各种资源文件的。</p>
+<ol start="4">
+<li><strong>获取本机当前用户的SSH公钥</strong>：首先查看在本机的当前用户(操作系统的登录账户)目录下是否已经存在ssh公钥。~表示当前用户的家目录。</li>
+</ol>
 <p>二. 生成SSH添加到GitHub</p>
 <p>回到你的blog文件夹下的git bash中，输入以下代码：</p>
-<p>git config –global user.name “yourname”</p>
-<p>git config –global user.email “youremail”</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name &quot;yourname&quot;</span><br><span class="line"></span><br><span class="line">git config --global user.email &quot;youremail&quot;</span><br></pre></td></tr></table></figure>
+
 <p>这里的yourname输入你的GitHub用户名，youremail输入你GitHub的邮箱。这样GitHub才能知道你是不是对应它的账户，我的操作如下：</p>
-<p><img src="file:///C:%5CUsers%5C%E6%9C%BA%E7%94%B5%E8%8F%B2~1%5CAppData%5CLocal%5CTemp%5Cksohtml33596%5Cwps21.jpg" alt="img">)<img src="../picture/wps22.jpg" alt="img"> </p>
+<p><img src="https://cdn.jsdelivr.net/gh/ccit18040530535/Picture@master/img/%E9%83%A8%E7%BD%B21.jpg" alt="">)<img src="https://cdn.jsdelivr.net/gh/ccit18040530535/Picture@master/img/%E9%83%A8%E7%BD%B22.jpg" alt=""> </p>
 <p>可以用以下两条，检查一下你有没有输对</p>
-<p>git config user.name</p>
-<p>git config user.email</p>
-<p><img src="../picture/wps23.jpg" alt="img"> </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git config user.name</span><br><span class="line"></span><br><span class="line">git config user.email</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/ccit18040530535/Picture@master/img/%E9%83%A8%E7%BD%B23.jpg" alt=""> </p>
 <p>若如上图结果所示，则表示对了；然后创建SSH,一路回车</p>
-<p>ssh-keygen -t rsa -C “youremail”</p>
-<p><img src="../picture/wps24.jpg" alt="img"> </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &quot;youremail&quot;</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/ccit18040530535/Picture@master/img/%E9%83%A8%E7%BD%B24.jpg" alt=""> </p>
 <p>这个时候它会告诉你已经生成了.ssh的文件夹。在你的电脑中找到这个文件夹里的这个文件，打开方式用记事本打开，然后复制里面的内容。</p>
-<p><img src="../picture/wps25.jpg" alt="img"> </p>
+<p><img src="https://cdn.jsdelivr.net/gh/ccit18040530535/Picture@master/img/%E9%83%A8%E7%BD%B26.jpg" alt=""> </p>
+<blockquote>
 <p>（ssh，简单来讲，就是一个秘钥，其中，id_rsa是你这台电脑的私人秘钥，不能给别人看的，id_rsa.pub是公共秘钥，可以随便给别人看。把这个公钥放在GitHub上，这样当你链接GitHub自己的账户时，它就会根据公钥匹配你的私钥，当能够相互匹配时，才能够顺利的通过git上传你的文件到GitHub上。）</p>
+</blockquote>
 <p>而后在GitHub的setting中，找到SSH keys的设置选项，点击New SSH key</p>
 <p>把你的id_rsa.pub里面的信息复制进去。</p>
-<p><img src="../picture/wps26.jpg" alt="img"> </p>
-<p><img src="../picture/wps27.jpg" alt="img"> </p>
+<p><img src="https://cdn.jsdelivr.net/gh/ccit18040530535/Picture@master/img/%E9%83%A8%E7%BD%B27.jpg" alt="">  </p>
 <p>在gitbash中，查看是否成功</p>
-<p>ssh -T <a href="mailto:git@github.com">git@github.com</a></p>
-<p><img src="../picture/wps28.jpg" alt="img"> </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -T [git@github.com](mailto:git@github.com)</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/ccit18040530535/Picture@master/img/%E9%83%A8%E7%BD%B28.jpg" alt=""> </p>
 <p>三. 绑定hexo和github</p>
-<p><strong>1.</strong> <strong><em>\</em>修改本地站点配置文件**</strong>: 打开站点目录（blog\）下的_config.yml文件，将最后一部分修改为</p>
+<p><strong>1.</strong> <strong><em>修改本地站点配置文件</em></strong>: 打开站点目录（blog\）下的_config.yml文件，将最后一部分修改为</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:  </span><br><span class="line">      <span class="built_in">type</span>:  git</span><br><span class="line">      repo:  git@github.com:username/username.github.io.git</span><br><span class="line">      branch:  master</span><br></pre></td></tr></table></figure>
 
-<p><img src="../picture/1590856654038.png" alt="1590856654038"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/ccit18040530535/Picture@master/img/%E9%83%A8%E7%BD%B29.jpg" alt=""></p>
 <p>这段源码的意思是：我们将采用git工具来做Hexo博客的部署，部署在哪里呢？位置在Github上的username/username.github.io.git这样一个仓库里，且是仓库的master分支上。注意:上述冒号的后面都有一个空格。</p>
-<p><strong>1.</strong> <strong><em>\</em>安装关联hexo和git的工具**</strong>:</p>
+<p><strong>1.</strong> <strong><em>安装关联hexo和git的工具</em></strong>:</p>
 <p>npm install hexo-deployer-git –save</p>
 <p>如果最后可以看到这个工具的版本号，则表明安装成功。</p>
-<p><img src="../picture/wps29.jpg" alt="img"> </p>
+<p><img src="https://cdn.jsdelivr.net/gh/ccit18040530535/Picture@master/img/%E9%83%A8%E7%BD%B210.jpg" alt=""> </p>
 <p>四. Hexo部署</p>
 <p>1.部署hexo：执行以下命令</p>
-<p>hexo d</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo d</span><br></pre></td></tr></table></figure>
+
 <p>这个命令会将本地博客根目录（blog\）下public文件夹里的所有文件上传至Github上的username/username.github.io.git这个仓库。d:depoly 是部署的意思。</p>
-<p><strong>2.</strong> <strong><em>\</em>博客预览**</strong>：在浏览器中输入<a href="https://username.github.io" target="_blank" rel="noopener">https://username.github.io</a> ,如果看到新页面则大功告成。</p>
+<p><strong>2.</strong> <strong><em>博客预览</em></strong>：在浏览器中输入<a href="https://username.github.io" target="_blank" rel="noopener">https://username.github.io</a> ,如果看到新页面则大功告成。</p>
 
     
 
