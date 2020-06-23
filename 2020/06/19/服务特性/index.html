@@ -18,6 +18,10 @@
 <meta property="og:description" content="BBC服务特性">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/ccit18040530535/Picture@master/img/BBC%E6%9C%8D%E5%8A%A1%E7%89%B9%E6%80%A71.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/ccit18040530535/Picture@master/img/BBC%E6%9C%8D%E5%8A%A1%E7%89%B9%E6%80%A72.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/ccit18040530535/Picture@master/img/BBC%E6%9C%8D%E5%8A%A1%E7%89%B9%E6%80%A76.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/ccit18040530535/Picture@master/img/BBC%E6%9C%8D%E5%8A%A1%E7%89%B9%E6%80%A73.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/ccit18040530535/Picture@master/img/BBC%E6%9C%8D%E5%8A%A1%E7%89%B9%E6%80%A74.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/ccit18040530535/Picture@master/img/BBC%E6%9C%8D%E5%8A%A1%E7%89%B9%E6%80%A75.png">
 <meta property="article:published_time" content="2020-06-19T08:15:05.000Z">
 <meta property="article:modified_time" content="2020-06-19T08:15:05.000Z">
 <meta property="article:author" content="Iffy Fox">
@@ -282,7 +286,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">1.8k字</span>
+      <span class="post-count">2.5k字</span>
     </span>
   </span>
 
@@ -291,7 +295,7 @@
     <span class="post-meta-item-icon">
       <i class="icon-book icon"></i>
       <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">7分</span>
+      <span class="post-count">10分</span>
     </span>
   </span>
 </div>
@@ -410,7 +414,54 @@
 </li>
 </ul>
 <h3 id="2-服务、特性的获取-1"><a href="#2-服务、特性的获取-1" class="headerlink" title="2.服务、特性的获取"></a>2.服务、特性的获取</h3><blockquote>
-<p>和上述步骤差不多，只是增加服务的服务号和特性的特性号需要改变或者添加即可</p>
+<p>其实和上述步骤差不多，只是增加服务的服务号和特性的特性号需要改变或者添加即可</p>
+</blockquote>
+<p>代码的添加：(我选择的是温度服务中的温度特性,所以下面以此来进行讲解,若使用其他只要进行特性代码改写就行或者进行添加)</p>
+<blockquote>
+<p>①.增加温度服务和其特性的标志变量</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;var has_temperature_serivce &#x3D; false;&#x2F;&#x2F;温度服务</span><br><span class="line">&gt;var has_temperature &#x3D; false;   &#x2F;&#x2F;温度特性</span><br></pre></td></tr></table></figure>
+
+<p>②.增加UUID</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;TEMPERATURE_SERVICE &#x3D; &#39;e95d6100-251d-470a-a062-fa1922dfa9a8&#39;;&#x2F;&#x2F;温度服务</span><br><span class="line">&gt;TEMPERATURE &#x3D; &#39;e95d9250-251d-470a-a062-fa1922dfa9a8&#39;;	&#x2F;&#x2F;温度特性</span><br></pre></td></tr></table></figure>
+
+<p>③.定义特性本身</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt;var temperature;&#x2F;&#x2F;温度特性</span><br></pre></td></tr></table></figure>
+
+<p>④.服务添加：TEMPERATURE_SERVICE</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var options &#x3D; &#123;acceptAllDevices:true,</span><br><span class="line">			    optionalServices: [DEVICE_INFORMATION_SERVICE, ACCELEROMETER_SERVICE, LED_SERVICE,TEMPERATURE_SERVICE]  &#x2F;&#x2F;在第5节课上添加的函数</span><br></pre></td></tr></table></figure>
+
+<p>⑤.对已发现的温度服务进行判断</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt;has_temperature_service &#x3D; false;&#x2F;&#x2F;温度</span><br><span class="line"></span><br><span class="line">&gt;if (service.uuid &#x3D;&#x3D; TEMPERATURE_SERVICE) </span><br><span class="line">                           &#123;      </span><br><span class="line">                               has_temperature_service &#x3D; true;     </span><br><span class="line">                           &#125;     &#x2F;&#x2F;温度</span><br></pre></td></tr></table></figure>
+
+<p>⑥.对已发现的温度特性进行判断</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt;if (characteristic.uuid &#x3D;&#x3D; TEMPERATURE) </span><br><span class="line">                                   &#123;        </span><br><span class="line">                                       temperature &#x3D; characteristic;        </span><br><span class="line">                                       has_temperature &#x3D; true;       </span><br><span class="line">                                   &#125;&#x2F;&#x2F;温度特性</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>添加以上代码保存，打开html文件刷新进行连接,我们可以看到服务数字已经改变，温度服务和特性的UUID也已经显示出来。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/ccit18040530535/Picture@master/img/BBC%E6%9C%8D%E5%8A%A1%E7%89%B9%E6%80%A76.png" alt=""></p>
+<h2 id="三、出现的问题的解决方案"><a href="#三、出现的问题的解决方案" class="headerlink" title="三、出现的问题的解决方案"></a><font color="orange">三、出现的问题的解决方案</font></h2><h3 id="1-无UUID导致服务无法正常显示"><a href="#1-无UUID导致服务无法正常显示" class="headerlink" title="1.无UUID导致服务无法正常显示:"></a>1.无UUID导致服务无法正常显示:</h3><blockquote>
+<p><font color="red">在这里你们肯定会有疑惑——为什么前面的LED服务可以正常显示，而现在的温度服务无法显示？</font></p>
+<p>​     其实是因为，我们前面下载的固件包含了蓝牙加速计服务和蓝牙led服务模块，所以才会正常显示；因此我们需要添加温度服务在固件中，让BBC拥有这个服务功能。</p>
+</blockquote>
+<ul>
+<li><p>查看网页有的<a href="[chrome://bluetooth-internals/#adapter](chrome://bluetooth-internals/#adapter)">蓝牙插件</a>的服务模块中是否有对应的服务UUID</p>
+<p> 我们可以看到，Services里面的并没有温度服务的UUID号，表示BBC无这个功能，因此我们需要进行功能添加</p>
+</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/ccit18040530535/Picture@master/img/BBC%E6%9C%8D%E5%8A%A1%E7%89%B9%E6%80%A73.png" alt=""></p>
+<ul>
+<li>添加温度服务：</li>
+</ul>
+<p>打开<a href="https://makecode.microbit.org/v0/89975-20684-84568-20127" target="_blank" rel="noopener">此链接</a>进行固件的编辑，在蓝牙模块里找到蓝牙温度服务，把它拖拽出放到对应位置进行添加，然后下载到BBC板子上</p>
+<p><img src="https://cdn.jsdelivr.net/gh/ccit18040530535/Picture@master/img/BBC%E6%9C%8D%E5%8A%A1%E7%89%B9%E6%80%A74.png" alt=""></p>
+<ul>
+<li>查看服务是否添加成功</li>
+</ul>
+<p>现在我们打开网页中的<a href="[chrome://bluetooth-internals/#adapter](chrome://bluetooth-internals/#adapter)">蓝牙插件</a>，可以看到服务部分已经增加了温度服务的UUID</p>
+<p><img src="https://cdn.jsdelivr.net/gh/ccit18040530535/Picture@master/img/BBC%E6%9C%8D%E5%8A%A1%E7%89%B9%E6%80%A75.png" alt=""></p>
+<p>最后打开我们的html文件，进行连接，就可以看到温度服务已经添加进去了</p>
+<blockquote>
+<p>如果需要完整代码，请在以下网盘链接中进行提取</p>
+<p>链接：<a href="https://pan.baidu.com/s/1IlG_o3EF4-jp-P86MotC0w" target="_blank" rel="noopener">https://pan.baidu.com/s/1IlG_o3EF4-jp-P86MotC0w</a><br>提取码：cgxl</p>
 </blockquote>
 
     
@@ -562,6 +613,15 @@
 
 <nav id="article-nav">
   
+    <a href="../../21/%E8%AF%BB%E5%86%99%E7%89%B9%E6%80%A7/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          micro:bit开发板的读写特性
+        
+      </div>
+    </a>
+  
   
     <a href="../../17/%E8%AE%BE%E5%A4%87%E8%BF%9E%E6%8E%A5/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">micro:bit开发板的设备连接</div>
@@ -591,7 +651,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#BBC的服务特性之Led服务和温度服务"><span class="toc-number">1.</span> <span class="toc-text">BBC的服务特性之Led服务和温度服务</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#一-在控制台上显示BBC设备的Led服务及它的任意两个特性"><span class="toc-number">1.1.</span> <span class="toc-text">一:在控制台上显示BBC设备的Led服务及它的任意两个特性</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-服务、特性的概念"><span class="toc-number">1.1.1.</span> <span class="toc-text">1.服务、特性的概念</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1查找BBC提供的LED服务的UUID"><span class="toc-number">1.1.1.1.</span> <span class="toc-text">1.1查找BBC提供的LED服务的UUID</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-2查找LED-SERVICE的特性的UUID"><span class="toc-number">1.1.1.2.</span> <span class="toc-text">1.2查找LED SERVICE的特性的UUID</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-服务、特性的获取"><span class="toc-number">1.1.2.</span> <span class="toc-text">2.服务、特性的获取</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二：在控制台上显示BBC设备的温度服务及它的一个特性"><span class="toc-number">1.2.</span> <span class="toc-text">二：在控制台上显示BBC设备的温度服务及它的一个特性</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-查找BBC提供的温度服务的UUID和温度服务特性的UUID"><span class="toc-number">1.2.1.</span> <span class="toc-text">1.查找BBC提供的温度服务的UUID和温度服务特性的UUID</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-服务、特性的获取-1"><span class="toc-number">1.2.2.</span> <span class="toc-text">2.服务、特性的获取</span></a></li></ol></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#BBC的服务特性之Led服务和温度服务"><span class="toc-number">1.</span> <span class="toc-text">BBC的服务特性之Led服务和温度服务</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#一-在控制台上显示BBC设备的Led服务及它的任意两个特性"><span class="toc-number">1.1.</span> <span class="toc-text">一:在控制台上显示BBC设备的Led服务及它的任意两个特性</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-服务、特性的概念"><span class="toc-number">1.1.1.</span> <span class="toc-text">1.服务、特性的概念</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1查找BBC提供的LED服务的UUID"><span class="toc-number">1.1.1.1.</span> <span class="toc-text">1.1查找BBC提供的LED服务的UUID</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-2查找LED-SERVICE的特性的UUID"><span class="toc-number">1.1.1.2.</span> <span class="toc-text">1.2查找LED SERVICE的特性的UUID</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-服务、特性的获取"><span class="toc-number">1.1.2.</span> <span class="toc-text">2.服务、特性的获取</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二：在控制台上显示BBC设备的温度服务及它的一个特性"><span class="toc-number">1.2.</span> <span class="toc-text">二：在控制台上显示BBC设备的温度服务及它的一个特性</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-查找BBC提供的温度服务的UUID和温度服务特性的UUID"><span class="toc-number">1.2.1.</span> <span class="toc-text">1.查找BBC提供的温度服务的UUID和温度服务特性的UUID</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-服务、特性的获取-1"><span class="toc-number">1.2.2.</span> <span class="toc-text">2.服务、特性的获取</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、出现的问题的解决方案"><span class="toc-number">1.3.</span> <span class="toc-text">三、出现的问题的解决方案</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-无UUID导致服务无法正常显示"><span class="toc-number">1.3.1.</span> <span class="toc-text">1.无UUID导致服务无法正常显示:</span></a></li></ol></li></ol></li></ol>
                     </div>
                 </span>
             </div>
